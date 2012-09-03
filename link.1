@@ -1,0 +1,86 @@
+'\" t
+.\"     Title: link
+.\"    Author: Mo McRoberts
+.\" Generator: DocBook XSL Stylesheets v1.77.1 <http://docbook.sf.net/>
+.\"      Date: 09/03/2012
+.\"    Manual: User Commands
+.\"    Source: System Manager's Manual
+.\"  Language: English
+.\"
+.TH "LINK" "1" "09/03/2012" "System Manager's Manual" "User Commands"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+link \- create a hard link
+.SH "SYNOPSIS"
+.HP \w'\fBlink\fR\ 'u
+\fBlink\fR \fBfile1\fR \fBfile2\fR
+.SH "DESCRIPTION"
+.PP
+The
+\fBlink\fR
+creates a hard link,
+\fBfile2\fR, which will refer to the same file as
+\fBfile1\fR\&.
+.SH "OPERANDS"
+.PP
+\fBfile1\fR
+.RS 4
+The pathname of an existing file\&.
+.RE
+.PP
+\fBfile2\fR
+.RS 4
+The pathname of the new directory entry which will be created\&.
+.RE
+.SH "DIAGNOSTICS"
+.PP
+The following error values are returned:
+.\" line length increase to cope w/ tbl weirdness
+.ll +(\n(LLu * 62u / 100u)
+.TS
+ll.
+\fIError value\fR	\fIDiagnostic\fR
+T{
+\fB0\fR
+T}	T{
+Successful completion\&.
+T}
+T{
+\fB>0\fR
+T}	T{
+An error occurred\&.
+T}
+.TE
+.\" line length decrease back to previous value
+.ll -(\n(LLu * 62u / 100u)
+.sp
+.SH "STANDARDS"
+.PP
+The
+\fBlink\fR
+utility conforms to the
+Single UNIX Specification, Version 3 (SUSv3), and the
+X/Open System Interfaces Extension (XSI)\&.
+.SH "SEE ALSO"
+.PP
+
+\fBln\fR(1),
+\fBlink\fR(2)\&.
