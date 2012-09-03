@@ -69,6 +69,7 @@ usage(void)
 int
 main(int argc, char **argv)
 {	
+	int ch;
 	const char *t;
 	struct stat sbuf;
 
@@ -88,25 +89,31 @@ main(int argc, char **argv)
 		}
 		argv[0] = (char *) short_program_name;
 	}
-	if(argc != 3)
+	while(-1 != (ch = getopt(argc, argv, "")))
+	{
+		/* No options are permitted */
+		usage();
+		exit(EXIT_FAILURE);
+	}
+	if(argc - optind != 2)
 	{
 		usage();
-		exit(2);
+		exit(EXIT_FAILURE);
 	}
-	if(stat(argv[1], &sbuf))
+	if(stat(argv[optind], &sbuf))
 	{
-		perror(argv[1]);
+		perror(argv[optind]);
 		exit(EXIT_FAILURE);
 	}
 	if(S_ISDIR(sbuf.st_mode))
 	{
 		errno = EISDIR;
-		perror(argv[1]);
+		perror(argv[optind]);
 		exit(EXIT_FAILURE);
 	}
-	if(link(argv[1], argv[2]))
+	if(link(argv[optind], argv[optind + 1]))
 	{
-		perror(argv[2]);
+		perror(argv[optind + 1]);
 		exit(EXIT_FAILURE);
 	}
 #ifdef ENABLE_NLS
